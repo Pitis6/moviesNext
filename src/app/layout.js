@@ -1,3 +1,4 @@
+import NavBarContainer from '@/components/layout/navBar/NavBarContainer'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -11,7 +12,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        suppressHydrationWarning={true}
+        className={inter.className}
+        style={{
+          minHeight: "calc(100vh - 250px)",
+          overflowX: "hidden",
+          backgroundColor: "rgb(26, 29, 41)",
+          transition: "opacity 200ms ease 0s",
+        }}
+      >
+        <NavBarContainer />
+        {children}
+      </body>
     </html>
   )
 }
