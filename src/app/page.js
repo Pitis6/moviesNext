@@ -16,7 +16,7 @@ const getData = async () => {
 export default async function Home() {
   const arrCategories = [
     {
-      path: "/diseney",
+      path: "/disney",
       img: "https://res.cloudinary.com/dishtratk/image/upload/v1685642254/disney-app/common/scale_dqe8gx.png",
       video:
         "https://res.cloudinary.com/dishtratk/video/upload/v1685642194/disney-app/video/1565217865-disney_ife6wf.mp4",
@@ -47,8 +47,15 @@ export default async function Home() {
     },
   ];
 
+  const arrGenders = [
+    "comedia",
+    "documental",
+    "familiar",
+    "animacion",
+    "amistad",
+  ];
+
   const movies = await getData();
-  console.log(movies);
   return (
     <main className="">
       <section className="w-full flex justify-start gap-2 flex-wrap">
@@ -56,7 +63,9 @@ export default async function Home() {
           <CardCategory key={card.path} cardCategory={card} />
         ))}
       </section>
-      <Movies movies={movies} />
+      {arrGenders.map((gender) => (
+        <Movies key={gender} movies={movies} gender={gender} />
+      ))}
     </main>
   );
 }

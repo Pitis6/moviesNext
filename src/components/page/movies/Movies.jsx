@@ -1,20 +1,29 @@
-
-
+"use client"
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 import Image from "next/image";
 import Link from "next/link";
 
-const Movies = ({ movies }) => {
-  console.log(movies);
+const Movies = ({ movies, gender }) => {
   return (
     <div>
-      {movies.map((movie) => (
-        <Link key={movie.id} href={`movies/${movie.id}`}>
-        <div>
-          {/* <Image src={e.frontImage} width={200} height={200} alt="asd" style={{height: "auto"}} /> */}
-          <img src={movie.frontImage} alt="asd" />
-        </div>
-        </Link>
-      ))}
+      <h2 style={{ color: "red" }}>{gender}</h2>
+      <Swiper
+        slidesPerView={6}
+        spaceBetween={30}
+        centeredSlides={true}
+        className="mySwiper"
+      >
+        {movies
+          .filter((movie) => movie.gender.includes(gender))
+          .map((movie) => {
+            return (
+              <SwiperSlide key={movie.id}>
+                <img src={movie.frontImage} alt="kk" />
+              </SwiperSlide>
+            );
+          })}
+      </Swiper>
     </div>
   );
 };

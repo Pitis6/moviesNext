@@ -80,7 +80,7 @@ const NavBar = ({ isActive }) => {
         </ul>
       </div>
       <div className="w-1/5 flex justify-end">
-        <p className=" text-white flex items-center text-sm mx-4">Ignacio</p>
+        <p className=" text-white flex items-center text-sm mx-4">Felipe</p>
         <div className="flex items-center">
           <Image
             src="https://res.cloudinary.com/dishtratk/image/upload/v1685547097/disney-app/icons/scale_g6l2xv.png"
