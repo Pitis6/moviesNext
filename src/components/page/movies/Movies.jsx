@@ -1,29 +1,47 @@
-"use client"
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./Movies.css";
 
 const Movies = ({ movies, gender }) => {
+
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    centerMode: false,
+  };
+
   return (
     <div>
       <h2 style={{ color: "red" }}>{gender}</h2>
-      <Swiper
-        slidesPerView={6}
-        spaceBetween={30}
-        centeredSlides={true}
-        className="mySwiper"
-      >
+      <Slider {...settings}>
         {movies
           .filter((movie) => movie.gender.includes(gender))
-          .map((movie) => {
+          .map((e) => {
             return (
-              <SwiperSlide key={movie.id}>
-                <img src={movie.frontImage} alt="kk" />
-              </SwiperSlide>
+              <Link key={e.id} href={`/movies/${e.id}`} className="p-[10px] w20">
+                <Image
+                  key={e.id}
+                  src={e?.frontImage}
+                  width={300}
+                  height={300}
+                  alt={e.name}
+                  className="w-auto h-auto"
+                />
+              </Link>
             );
           })}
-      </Swiper>
+      </Slider>
     </div>
   );
 };
