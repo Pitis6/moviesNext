@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning={true}
         className={inter.className}
         style={{
-          minHeight: "calc(100vh - 250px)",
+          minHeight: "100vh",
           overflowX: "hidden",
           backgroundColor: "rgb(26, 29, 41)",
           transition: "opacity 200ms ease 0s",
