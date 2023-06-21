@@ -46,7 +46,7 @@ const NavBar = ({ isActive }) => {
             busqueda
           </Link>
           <Link
-            href={"/"}
+            href={"/myList"}
             className="uppercase text-white text-sm font-semibold flex items-center"
           >
             <Image

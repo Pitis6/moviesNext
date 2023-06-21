@@ -1,3 +1,4 @@
+import MovieDetail from "@/components/page/movieDetail/MovieDetail"
 
 const getMovie = async(id)=>{
     const res = await fetch(`http:/localhost:3000/api/movies/${id}`)
@@ -6,11 +7,14 @@ const getMovie = async(id)=>{
 }
 
 
-const MovieDetail = async ({params}) => {
+const MovieDetailServer = async ({params}) => {
     const movie = await getMovie ( params.id)
+
   return (
-    <div>{movie.name}</div>
-  )
+    <>
+      <MovieDetail movie={movie}/>
+    </>
+  );
 }
 
-export default MovieDetail
+export default MovieDetailServer

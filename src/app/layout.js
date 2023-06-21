@@ -1,6 +1,7 @@
 import NavBarContainer from '@/components/layout/navBar/NavBarContainer'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import ProviderStore from '@/store/ProviderStore'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,9 +23,11 @@ export default function RootLayout({ children }) {
           transition: "opacity 200ms ease 0s",
         }}
       >
-        <NavBarContainer />
-        {children}
+        <ProviderStore>
+          <NavBarContainer />
+          {children}
+        </ProviderStore>
       </body>
     </html>
-  )
+  );
 }
